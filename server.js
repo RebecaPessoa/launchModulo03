@@ -3,6 +3,9 @@ const nunjucks = require('nunjucks')
 
 const server = express()
 
+//express "observa a pasta public para oferecer arquivos estáticos (como css)"
+server.use(express.static('public'))
+
 //configurando a template engine (nunjucks):
 server.set("view engine", "html")
 
@@ -14,7 +17,7 @@ nunjucks.configure("views", {
 
 
 server.get("/", function(req,res){
-    return res.send("Hi! How it is going?")
+    return res.render("index")
 })
 server.listen(5000, function(){
     console.log("server is running")
