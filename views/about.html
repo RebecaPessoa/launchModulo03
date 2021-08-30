@@ -1,17 +1,15 @@
-<!DOCTYPE html>
+{% extends "layout.html" %}
 
-<head>
-    <title>Rebeca Pessôa</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+{% block head %}
 
-<body>
-    <header>
-        <div class="links">
-            <a href="/">Sobre</a>
-            <a href="/portfolio">Aulas</a>
-        </div>
-    </header>
+<title>Sobre - Rebeca Pessoa</title>
+
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
     <div id="wrapper">
         <img src="https://avatars.githubusercontent.com/u/4651221?v=4" alt="Rebeca Pessoa">
         <h1>Rebeca Pessoa</h1>
@@ -24,6 +22,5 @@
         <a href="/" target="_blank">Twitter</a>
         <a href="/" target="_blank">Linkedin</a>
     </div>
-</body>
 
-</html>
+{% endblock %}
