@@ -18,14 +18,13 @@ nunjucks.configure("views", {
     noCache: true 
 })
 
-
 server.get("/", function(req,res){  //4 criar a rota 
     
     const about = {
         avatar_url: "https://avatars.githubusercontent.com/u/4651221?v=4",
         name: "Rebeca Pessoa",
         role: "Arquitetura - Desenvolvimento Web",
-        description: 'Front-end / arquitetura digital <a href="https://rocketseat.com.br" target="_blank">Rocketseat</a>',
+        description: 'Front-end / IFC - Open BIM <a href="https://rocketseat.com.br" target="_blank">Rocketseat</a>',
         links: [
             {
                 name: "GitHub",
@@ -50,6 +49,20 @@ server.get("/portfolio", function(req,res){
     return res.render("portfolio", {items: videos}) //dentro do objeto, cria-se um atributo chamado items, passando videos
 })
 
+server.get("/video", function(req, res){
+    const id = req.query.id
+
+    const video = videos.find(function(video){
+        if (video.id == id){
+            return true
+        }
+    })
+    if (!video){
+        return res.send("Video not found!")
+    }
+
+    return res.render("video", { item: video })
+})
 
 server.listen(5000, function(){ //3 cria a callback do servidor
     console.log("server is running")
