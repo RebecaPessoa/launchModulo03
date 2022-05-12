@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout.njk" %}
 
 {% block head %}
 
@@ -15,91 +15,25 @@
 
     <section class="cards">
 
-        <div class="card" id="gQCR_GeYhh8">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/gQCR_GeYhh8/maxresdefault.jpg" alt="video aula">
+        {% for item in items %}
+        <div class="card" id="{{item.id}}">
+            <div class="card__image-container {{'featured_wrapper' if item.featured}}">
+                <img src="https://img.youtube.com/vi/{{item.id}}/maxresdefault.jpg" alt="imagem de {{item.title}}"> 
+                {% if item.featured %}
+                    <div class="featured">Featured</div>
+                {% endif %}
             </div>
             <div class="card__content">
-                <p>Como fazer uma cozinha planejada usando Revit.</p>
+                <p>{{item.title}}</p>
             </div>
             <div class="card__info">
-                <p>22 min</p>
-                <p class="card__type">Revit</p>
+                <p>{{item.duration}}</p>
+                <p class="card__type">{{item.type}}</p>
             </div>
         </div>
-
-        <div class="card" id="g_31HGv-r0k">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/g_31HGv-r0k/maxresdefault.jpg" alt="video aula">
-            </div>
-            <div class="card__content">
-                <p>Projeto de alto padrão no Revit.</p>
-            </div>
-            <div class="card__info">
-                <p>22 min</p>
-                <p class="card__type">Revit</p>
-            </div>
-        </div>
-
-        <div class="card" id="cGrTcnorZgs">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/cGrTcnorZgs/maxresdefault.jpg" alt="video aula">
-            </div>
-            <div class="card__content">
-                <p>Programador Javascript precisa saber.</p>
-            </div>
-            <div class="card__info">
-                <p>22 min</p>
-                <p class="card__type">Javascript</p>
-            </div>
-        </div>
-
-        <div class="card" id="xR8ArD6o0jc">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/xR8ArD6o0jc/maxresdefault.jpg" alt="video aula">
-            </div>
-            <div class="card__content">
-                <p>Load 3d models with threejs.</p>
-            </div>
-            <div class="card__info">
-                <p>22 min</p>
-                <p class="card__type">ThreeJs</p>
-            </div>
-        </div>
-
-        <div class="card" id="fdtqqyeKRJk">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/fdtqqyeKRJk/maxresdefault.jpg" alt="video aula">
-            </div>
-            <div class="card__content">
-                <p>ThreeJS e React.</p>
-            </div>
-            <div class="card__info">
-                <p>22 min</p>
-                <p class="card__type">React</p>
-            </div>
-        </div>
-
-        <div class="card" id="u85mYTlNk3Y">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/u85mYTlNk3Y/maxresdefault.jpg" alt="video aula">
-            </div>
-            <div class="card__content">
-                <p>Cobertura completa no Revit.</p>
-            </div>
-            <div class="card__info">
-                <p>22 min</p>
-                <p class="card__type">Revit</p>
-            </div>
-        </div>
-
+        {% endfor %}
     </section>
-    <div id="links-footer" class="links">
-        <a href="/" target="_blank">Github</a>
-        <a href="/" target="_blank">Twitter</a>
-        <a href="/" target="_blank">Linkedin</a>
-    </div>
-
+    
     <div class="modal-overlay">
 
         <div class="modal">

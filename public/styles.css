@@ -95,6 +95,8 @@ header {
 
 .card{
     background-color: var(--color-rocket) ;
+    display: grid;
+    cursor: pointer;
     
 }
 
@@ -113,6 +115,7 @@ header {
 .card__info {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .card__type{
@@ -166,5 +169,21 @@ iframe{
     top: 5%;
 }
 
+/* =======Featured ========*/
+
+
+.featured_wrapper.card__image-container { /*condição: se o card tiver featured-wrapped, ele terá a propriedade position: relative satisfeita*/
+    position: relative;
+}
+
+.featured {
+    background: #f7d050;
+    color: #111;
+    padding: 2px 8px;
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    border-radius: 16px;
+}
 
 
