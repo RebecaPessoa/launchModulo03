@@ -1,30 +1,30 @@
-const express = require('express')
-const nunjucks = require('nunjucks')
+const express = require('express') //1 cria variável express
+const nunjucks = require('nunjucks') //5 instala e chama nunjucks
 
-const server = express()
+const server = express() //2 cria a variável server para receber express
 
-//express "observa a pasta public para oferecer arquivos estáticos (como css)"
+//8 express "observa a pasta public para oferecer arquivos estáticos (como css)"
 server.use(express.static('public'))
 
-//configurando a template engine (nunjucks):
-server.set("view engine", "html")
+//6configurando a template engine (nunjucks):
+server.set("view engine", "njk") 
 
 //caminho e opções em formato de objeto:
 nunjucks.configure("views", {
-    //informa que será o express e a variavel que será usada (server)
+    //7 informa que a opção será o express e a variavel que será usada (server)
     express:server
 })
 
 
-server.get("/", function(req,res){
-    return res.render("about")
+server.get("/", function(req,res){  //4 criar a rota principal
+    return res.render("about") 
 })
 
-server.get("/portfolio", function(req,res){
+server.get("/portfolio", function(req,res){ 
     return res.render("portfolio")
 })
 
 
-server.listen(5000, function(){
+server.listen(5000, function(){ //3 cria a callback do servidor
     console.log("server is running")
 })
